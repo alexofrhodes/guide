@@ -5,7 +5,21 @@ import * as Component from "./quartz/components"
 export const sharedPageComponents: SharedLayout = {
   head: Component.Head(),
   header: [],
-  afterBody: [],
+  afterBody: [
+    Component.Comments({
+      provider: 'giscus',
+      options: {
+        // from data-repo
+        repo: 'alexofrhodes/quartz',
+        // from data-repo-id
+        repoId: 'R_kgDOMbzc4w',
+        // from data-category
+        category: 'Announcements',
+        // from data-category-id
+        categoryId: 'DIC_kwDOMbzc484ChOtf',
+      }
+    }),
+  ],
   footer: Component.Footer({
     links: {
       GitHub: "https://github.com/jackyzha0/quartz",
@@ -27,6 +41,7 @@ export const defaultContentPageLayout: PageLayout = {
     Component.MobileOnly(Component.Spacer()),
     Component.Search(),
     Component.Darkmode(),
+    Component.RecentNotes({ title: "Recent writing" },{ limit: 5 }),
     Component.DesktopOnly(Component.Explorer()),
   ],
   right: [
@@ -48,3 +63,4 @@ export const defaultListPageLayout: PageLayout = {
   ],
   right: [],
 }
+
